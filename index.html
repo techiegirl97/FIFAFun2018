@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FIFA World Cup Page</title>
+        <link href="styles.css" rel="stylesheet" type="text/css" />
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+        <script type="text/javascript" src="angular-footballdata-api-factory.js"></script>
+        
+    </head>
+    <body ng-app="app" id="body">  
+        <div id="wrapper">
+        
+   
+        <div id="teamphoto">
+            <div id="banner"></div>
+        </div>
+
+            <h1>World Cup Playground</h1>
+            <p>This page is written in HTML, JavaScript, CSS and utilizes the API at <a href="//http://api.football-data.org ">api.football-data.org</a></p>
+            
+            
+            <div id="getSeasons"></div>
+            
+            <div id="getGames"></div>
+        
+            <script type="text/javascript" src="source.js"></script>
+            
+        <div ng-controller="controller"></div>
+        
+        </div>
+    </body>
+</html>
