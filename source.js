@@ -96,7 +96,7 @@ app.controller('controller', ['$scope', 'footballdataFactory', function($scope, 
         apiKey: apiKey
     }).then(function(_data){
         var seasonData = _data.data["fixtures"];          
-        console.info(seasonData);
+        //console.info(seasonData);
         
         var seasonDataLen = seasonData.length;
         //console.info(seasonDataLen);
@@ -105,9 +105,9 @@ app.controller('controller', ['$scope', 'footballdataFactory', function($scope, 
         document.getElementById("getFixtures").innerHTML = "<h2>Upcoming Schedule</h2>";
         for (y=0; y<seasonDataLen; y++){
             if(seasonData[y]["status"] === "TIMED"){
-            document.getElementById("getFixtures").innerHTML += seasonData[y]["awayTeamName"] + " vs " + seasonData[y]["homeTeamName"] + " - " + moment(seasonData[y]["date"]).format("YYYY-MM-DD") + "<br/>";
+            document.getElementById("getFixtures").innerHTML += moment(seasonData[y]["date"]).format("YYYY-MM-DD") + " - " + seasonData[y]["homeTeamName"] + " vs " + seasonData[y]["awayTeamName"] + "<br/>";
         } else if (seasonData[y]["status"] === "SCHEDULED"){
-            document.getElementById("getFixtures").innerHTML += "TBD - " + moment(seasonData[y]["date"]).format("YYYY-MM-DD") + "<br/>";
+            document.getElementById("getFixtures").innerHTML += moment(seasonData[y]["date"]).format("YYYY-MM-DD") + " - TBD<br/>";
             };
     };        
     });
