@@ -1,16 +1,19 @@
 /* 
 FIFA Page created by Christina Fleming 6/26/2018
+Dependencies include 
+"angular.min.js" (needed for football api),
+"angular-footballdata-api-factory.js" (the main football api) and 
+"moment.js" (for date time parsing)
  */
 
 //set up the background animation for the banner
-//the fifa div is relative and the photo div is absolute
-   
+//the fifa div is relative and the photo div is absolute   
 var teamphoto = document.getElementById('teamphoto'); //the teamphoto box
 var t = setInterval(move, 100000); //set an interval of time for the movement
 var dir = 1;// direction
 
 //need an array of images
-//filename width height
+//filename - width - height
 var arr = [
     ['netherlands.jpg', 652, 366],
     ['neth2.jpg', 960, 540],
@@ -55,13 +58,12 @@ var height = arr[pic][2]; // height
 //http://worldcup.sfg.io
 
 
-//include angular-footballdata-api-factory.js
-//include open angular library for this API
-//set up the API for stats
-//http://api.football-data.org 
+//World Cup API from - http://api.football-data.org 
 //my key 13523f0f4fed4ba6a4271b47f9d82ce0
 apiKey = '13523f0f4fed4ba6a4271b47f9d82ce0';
 var app = angular.module("app", ['jtt_footballdata']);
+
+//create the football object
 app.controller('controller', ['$scope', 'footballdataFactory', function($scope, footballdataFactory) {
 
 //get current Season tournaments from the API
@@ -79,10 +81,38 @@ app.controller('controller', ['$scope', 'footballdataFactory', function($scope, 
         var jsonStringLen = jsonString.length;
         //console.log(jsonString);
         //console.log(jsonStringLen);
+        
+        //create a loop, write the result into the document for every available tournament
         document.getElementById("getSeasons").innerHTML = "<h2>Current FIFA Tournaments</h2>";
         for (x=0; x<jsonStringLen; x++){
             document.getElementById("getSeasons").innerHTML += jsonString[x]["caption"] + "<br/>";            
-        };//format the data
+        };
+    });
+    
+ 
+//get the current season schedule from the API
+    footballdataFactory.getFixturesBySeason({
+        id: 467,
+        apiKey: apiKey
+    }).then(function(_data){
+        var seasonData = _data.data["fixtures"];          
+        console.info(seasonData);
+        
+        var seasonDataLen = seasonData.length;
+        //console.info(seasonDataLen);
+        
+        //create a loop, write out upcoming events
+        document.getElementById("getFixtures").innerHTML = "<h2>Upcoming Schedule</h2>";
+        for (y=0; y<seasonDataLen; y++){
+            if(seasonData[y]["status"] === "TIMED"){
+            document.getElementById("getFixtures").innerHTML += seasonData[y]["awayTeamName"] + " vs " + seasonData[y]["homeTeamName"] + " - " + moment(seasonData[y]["date"]).format("YYYY-MM-DD") + "<br/>";
+        } else if (seasonData[y]["status"] === "SCHEDULED"){
+            document.getElementById("getFixtures").innerHTML += "TBD - " + moment(seasonData[y]["date"]).format("YYYY-MM-DD") + "<br/>";
+            };
+    };        
     });
 
 }]);
+
+
+

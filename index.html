@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>FIFA World Cup Page</title>
+        <title>Another World Cup Page</title>
         <link href="styles.css" rel="stylesheet" type="text/css" />
         
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
         <script type="text/javascript" src="angular-footballdata-api-factory.js"></script>
+        <script type="text/javascript" src="moment.js"></script>
         
     </head>
     <body ng-app="app" id="body">  
@@ -13,16 +14,16 @@
         
    
         <div id="teamphoto">
-            <div id="banner"></div>
+            <div id="banner"></div>            
         </div>
-
-            <h1>World Cup Playground</h1>
-            <p>This page is written in HTML, JavaScript, CSS and utilizes the API at <a href="//http://api.football-data.org ">api.football-data.org</a></p>
+            <p>The banner image is created using two graphics; each graphic is the background to its DIV. The top image has the letters erased out with transparency. The image on the bottom is then resized dynamically using JavaScript creating the movement effect. The image will change on page load or refresh.</p>
+            <h1>Another World Cup Page</h1>
+            <p>This page is written in HTML, JavaScript, CSS and utilizes the API at <a href="http://api.football-data.org/">api.football-data.org</a>. The code for this app is located on <a href="https://github.com/techiegirl97/FIFAFun2018">Github</a>.</p>
             
             
             <div id="getSeasons"></div>
             
-            <div id="getGames"></div>
+            <div id="getFixtures"></div>
         
             <script type="text/javascript" src="source.js"></script>
             

@@ -1,6 +1,6 @@
 /* 
     Created on : Jun 26, 2018, 9:47:59 AM
-    Author     : Christina
+    Author     : Christina Fleming
 */
 body,h1,h2{margin: 0; padding: 0;}
 
@@ -20,7 +20,7 @@ h1 {
 #wrapper{
     background-color: white;
     width: 655px;
-    height: 600px;
+    height: 660px;
     margin: 0 auto;
     position: relative;
     padding: 10px;
@@ -45,11 +45,20 @@ h1 {
   display: block;
 }
 
-
 #getSeasons{
-    background: lightgreen;
+    background: #a3cb88;
     margin: 10px;
     padding: 0 8px 5px;
     border-radius: 10px;
-    width: 248px;    
+    width: 248px;  
+    float: left;
+}
+
+#getFixtures{
+    background: #f9bc77;
+    margin: 10px;
+    padding: 0 8px 5px;
+    border-radius: 10px;
+    width: 330px;  
+    float: right;
 }
