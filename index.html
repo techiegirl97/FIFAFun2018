@@ -11,24 +11,24 @@
     </head>
     <body ng-app="app" id="body">  
         <div id="wrapper">
-        
-   
-        <div id="teamphoto">
-            <div id="banner"></div>            
-        </div>
+            <header>
+            <div id="teamphoto">
+                <div id="banner"></div>            
+            </div>
             <p>The banner image is created using two graphics; each graphic is the background to its DIV. The top image has the letters erased out with transparency. The image on the bottom is then resized dynamically using JavaScript creating the movement effect. The image will change on page load or refresh.</p>
+            </header>
+            
             <h1>Another World Cup Page</h1>
             <p>This page is written in HTML, JavaScript, CSS and utilizes the API at <a href="http://api.football-data.org/">api.football-data.org</a>. The code for this app is located on <a href="https://github.com/techiegirl97/FIFAFun2018">Github</a>.</p>
-            
             
             <div id="getSeasons"></div>
             
             <div id="getFixtures"></div>
-        
-            <script type="text/javascript" src="source.js"></script>
             
         <div ng-controller="controller"></div>
         
         </div>
+        
+        <script type="text/javascript" src="source.js"></script>
     </body>
 </html>

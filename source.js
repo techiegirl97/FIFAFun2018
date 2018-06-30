@@ -107,9 +107,18 @@ app.controller('controller', ['$scope', 'footballdataFactory', function($scope, 
             if(seasonData[y]["status"] === "TIMED"){
             document.getElementById("getFixtures").innerHTML += moment(seasonData[y]["date"]).format("YYYY-MM-DD") + " - " + seasonData[y]["homeTeamName"] + " vs " + seasonData[y]["awayTeamName"] + "<br/>";
         } else if (seasonData[y]["status"] === "SCHEDULED"){
-            document.getElementById("getFixtures").innerHTML += moment(seasonData[y]["date"]).format("YYYY-MM-DD") + " - TBD<br/>";
-            };
-    };        
+            //replace a blank team name with TBD
+            if(seasonData[y]["homeTeamName"] === "" && seasonData[y]["awayTeamName"] === ""){
+                document.getElementById("getFixtures").innerHTML += moment(seasonData[y]["date"]).format("YYYY-MM-DD") + " - " + "TBD" + " vs " + "TBD" + "<br/>";
+            }else if(seasonData[y]["awayTeamName"] === ""){
+                document.getElementById("getFixtures").innerHTML += moment(seasonData[y]["date"]).format("YYYY-MM-DD") + " - " + seasonData[y]["homeTeamName"] + " vs " + "TBD" + "<br/>";
+            }else if (seasonData[y]["homeTeamName"] === ""){
+                document.getElementById("getFixtures").innerHTML += moment(seasonData[y]["date"]).format("YYYY-MM-DD") + " - " + "TBD" + " vs " + seasonData[y]["awayTeamName"] + "<br/>";
+            }else{           
+            //write everything else
+                document.getElementById("getFixtures").innerHTML += moment(seasonData[y]["date"]).format("YYYY-MM-DD") + " - " + seasonData[y]["homeTeamName"] + " vs " + seasonData[y]["awayTeamName"] + "<br/>";
+                };
+    }};        
     });
 
 }]);
