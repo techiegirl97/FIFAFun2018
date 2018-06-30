@@ -9,7 +9,7 @@ Dependencies include
 //set up the background animation for the banner
 //the fifa div is relative and the photo div is absolute   
 var teamphoto = document.getElementById('teamphoto'); //the teamphoto box
-var t = setInterval(move, 100000); //set an interval of time for the movement
+var t = setInterval(move, 100); //set an interval of time for the movement
 var dir = 1;// direction
 
 //need an array of images
