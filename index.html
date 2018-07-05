@@ -2,12 +2,16 @@
 <html>
     <head>
         <title>Another World Cup Page</title>
-        <link href="styles.css" rel="stylesheet" type="text/css" />
+        <link href="assets/styles/libs/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/styles/jquery.bracket-world.css" rel="stylesheet">
+        <link href="assets/styles/styles.css" rel="stylesheet" type="text/css" />
+        <link href="assets/styles/index.css" rel="stylesheet">
         
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
-        <script type="text/javascript" src="angular-footballdata-api-factory.js"></script>
-        <script type="text/javascript" src="moment.js"></script>
-        
+        <script type="text/javascript" src="assets/scripts/libs/angular-footballdata-api-factory.js"></script>        
+        <script type="text/javascript" src="assets/scripts/libs/moment.js"></script>
+        <script src="assets/scripts/libs/jquery-2.0.3.min.js"></script>
+        <script src="assets/scripts/libs/bootstrap.min.js"></script>          
     </head>
     <body ng-app="app" id="body">  
         <div id="wrapper">
@@ -19,16 +23,27 @@
             </header>
             
             <h1>Another World Cup Page</h1>
-            <p>This page is written in HTML, JavaScript, CSS and utilizes the API at <a href="http://api.football-data.org/">api.football-data.org</a>. The code for this app is located on <a href="https://github.com/techiegirl97/FIFAFun2018">Github</a>.</p>
-            
+            <p>This page is written in HTML5, JavaScript, CSS3 and utilizes the API at <a href="http://api.football-data.org/">api.football-data.org</a> to retrieve current World Cup tournament data. The API used is written in Angular. The code for this web page is located on <a href="https://github.com/techiegirl97/FIFAFun2018">Github</a>.</p>
+                     
             <div id="getSeasons"></div>
             
             <div id="getFixtures"></div>
+            
+            <div id="getLatestResult"><h2>Current Results</h2></div>
+            
+            <div id="bracketWrapper">
+                <h2>World Cup Final 8</h2>
+                <p>The bracket below is another open source library called <a href="https://github.com/lipp15/bracket-world">Bracket World</a> and is written in JQuery. This bracket is currently a work in progress to populate data into it.</p>
+            <div id="bracket1" class="bracket"></div>
+            </div>
+            
             
         <div ng-controller="controller"></div>
         
         </div>
         
-        <script type="text/javascript" src="source.js"></script>
+        <script src="assets/scripts/index.js"></script>                                   
+        <script type="text/javascript" src="assets/scripts/source.js"></script>
+        <script src="assets/scripts/libs/jquery.bracket-world.min.js"></script> 
     </body>
 </html>
